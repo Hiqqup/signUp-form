@@ -23,17 +23,19 @@ main{
 
 :root{
 	--width: 500px;
+	--user-color: var(--bg-color);
 }
 :root.dark{
 	--bg-color: black;
 	--color: white;
 	--border-color: white;
-	--user-color: var(--bg-color);
+	--focused-bg: grey;
 }
 :root.light{
 	--bg-color: white;
 	--color: black;
 	--border-color: black;
+	--focused-bg: grey;
 }
 *{
 	background-color: var(--bg-color);
@@ -138,7 +140,7 @@ fieldset{
 	overflow: hidden; 
 }
 fieldset *{
-	transition: 2s transform;
+	transition: 1s transform;
 }
 fieldset *.left, fieldset *.right{
 	display: flex;
@@ -181,3 +183,14 @@ button{
 	margin: 8px 0 ;
 	appearance: none;
 }
+button:hover, 
+input:focus,
+button:hover span,
+textarea:focus,
+label[for=profile-picture]:hover{
+	background-color:var(--focused-bg);
+}
+input:focus::placeholder, textarea:focus::placeholder{
+	color: var(--color);
+}
+
