@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
+
 body{
 
-	width:97vw;
+	overflow: hidden;
+	width:100vw;
 	height:97vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-right: 0;
+}
+main{
+	display: flex;
+	width: 500vh;
+}
+.gap{
+	background-color: var(--bg-color);
+	z-index: 1;
+	flex: 1;
 }
 
 :root{
@@ -42,12 +54,18 @@ ul{
 	height: 100%;
 }
 p{
-	margin: 30px;
+	margin: 60px;
+	background-color:rgba(0,0,0,0);
+	padding: 0;
 }
 ul:has(meter), ul:has(img), ul:has(p){
 	align-items: center;
 	gap: 5px;
+}ul:has(p) li{
+
+	background-color:rgba(0,0,0,0);
 }
+ul:has(p){width:var(--width)}
 
 ul:has(img) li {
 	display: flex;
@@ -116,8 +134,32 @@ fieldset{
 	justify-content: center;
 	display: none;
 	width: var(--width);
-	height: 500px;
-
+	height: 550px;
+	overflow: hidden; 
+}
+fieldset *{
+	transition: 2s transform;
+}
+fieldset *.left, fieldset *.right{
+	display: flex;
+	position:fixed;
+	top: 0px;
+	background-color: rgba(0,0,0,0);
+}
+.invisible{
+	display:flex;
+	position: absolute;
+	top:-97vh;
+}
+form{
+	position: relative;
+}
+fieldset *.left{
+	transform: translateX(-500px);
+}
+fieldset *.right{
+	transform: translateX(500px);
+	
 }
 li{
 	display: flex;

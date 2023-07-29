@@ -3,13 +3,46 @@ const nextButton = document.querySelector('#next-button');
 const previousButton = document.querySelector('#previous-button');
 let position = 0;
 fieldsets[position].classList.add('enabled')
+addToChildren(position+1,'right');
 
 nextButton.addEventListener("click",()=> crementPosition(1));
 previousButton.addEventListener("click",()=> crementPosition(-1));
 
 function crementPosition(num){
+
+	fieldsets[position].classList.remove('enabled');
+	if(num==1){
+		addToChildren(position, 'left');
+		removeFromChildren(position+num,'right');
+	}
+	if(num==-1){
+		addToChildren(position, 'right');
+		removeFromChildren(position+num,'left');
+	}
 	position+= num;
-	enableCurrentPosition(position);
+
+	fieldsets[position].classList.remove('invisible');
+	fieldsets[position].classList.add('enabled');
+	if(fieldsets[position+1]){
+		addToChildren(position+1, 'right');
+	}
+	if(fieldsets[position-1]){
+		addToChildren(position-1, 'left');
+	}
+	handleButtons(position);
+}
+function addToChildren(position, arg){
+	fieldsets[position].classList.add('invisible');
+	fieldsets[position].childNodes[fieldsets[position].childNodes.length -2].classList.add(arg);
+}
+function pushNoInvis(position, arg){
+	fieldsets[position].childNodes[fieldsets[position].childNodes.length -2].classList.add(arg);
+}
+function removeFromChildren(position, arg){
+	fieldsets[position].childNodes[fieldsets[position].childNodes.length -2].classList.remove(arg);
+}
+
+function handleButtons(position){
 	switch (position){
 		case 0: 
 			previousButton.disabled = true;
@@ -24,14 +57,8 @@ function crementPosition(num){
 			nextButton.disabled = true;
 		break;
 	}
+}
 
-}
-function enableCurrentPosition(position){
-	fieldsets.forEach(fieldset => {
-		fieldset.classList.remove('enabled');
-	});
-	fieldsets[position].classList.add('enabled');
-}
 const file = document.querySelector("#profile-picture");
 const imgPreview = document.querySelector('#picture-preview')
 const svg = document.querySelector('#img-alt');
