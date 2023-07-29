@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
 body{
 
 	width:97vw;
@@ -6,15 +8,43 @@ body{
 	justify-content: center;
 	align-items: center;
 }
+
+:root{
+	--width: 500px;
+}
+:root.dark{
+	--bg-color: black;
+	--color: white;
+	--border-color: white;
+	--user-color: var(--bg-color);
+}
+:root.light{
+	--bg-color: white;
+	--color: black;
+	--border-color: black;
+}
+*{
+	background-color: var(--bg-color);
+	color: var(--color);
+	border-color: var(--border-color);
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto Mono',Roboto, Calibri, Tahoma, sans-serif;
+}
+
 ul{
 	list-style-type: none;
 	display:flex;
 	flex-direction: column;
 	justify-content: center;
+	text-align: center;
 	gap: 20px;
 	height: 100%;
 }
-ul:has(meter), ul:has(img){
+p{
+	margin: 30px;
+}
+ul:has(meter), ul:has(img), ul:has(p){
 	align-items: center;
 	gap: 5px;
 }
@@ -27,12 +57,27 @@ ul:has(img) li {
 	gap: 4px;
 }
 img{
-	border-radius: 100px;
+	border-radius: 120px;
+}
+#img-alt path{
+	fill: var(--color);
+}
+.color-fieldset{
+	background: linear-gradient(var(--bg-color), var(--user-color));
+}
+.color-fieldset *{
+	background-color: rgba(0,0,0,0);
+}
+
+legend{
+	text-align: center;
+	font-size: 36px;
+	font-weight: 900;
 }
 
 .color-container{
   position: relative;
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   border-radius: 50px;
   height: 75px;
   padding: 0;
@@ -58,8 +103,9 @@ input[type="file"] {
 	display: none;
 }
 label[for='profile-picture']{
-	border: 1px solid black;
-	padding: 4px 8px
+	border: 1px solid var(--border-color);
+	padding: 4px 8px;
+	border-radius: 4px;
 }
 .nav-buttons{
 	display: flex;
@@ -69,7 +115,7 @@ fieldset{
 	align-items: center;
 	justify-content: center;
 	display: none;
-	width: 500px;
+	width: var(--width);
 	height: 500px;
 
 }
@@ -81,4 +127,15 @@ li{
 }
 .enabled{
 	display: flex;
+}
+meter{
+	width: calc(var(--width) - 50px);
+}
+input[type=range]{
+	width: calc(var(--width) - 100px);
+}
+button{
+	padding: 4px 8px; 
+	margin: 8px 0 ;
+	appearance: none;
 }
