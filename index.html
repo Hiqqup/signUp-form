@@ -1,81 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src='script.js' defer></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src='script.js' defer></script>
+    </head>
     <body>
-        <form action="https://www.google.com/" method='post'>
-            <fieldset>
-                <legend>Sign up now!</legend>
-                <ul>
-                    <li>
-                        <label for="full-name">Full Name:</label>
-                        <input type="text" id="full-name" name="userFullName" placeholder='Your Full Name'>
-                    </li>
-                    <li>
-                        <label for="user-name">Username:</label>
-                        <input type="text" id="user-name" name="userName" placeholder='Your Username' required>
-                    </li>
-                    <li>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="userEmail" placeholder="example@yur.com" required>
-                    </li>
-                    <li>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="userPassword" placeholder='Password' required>
-                </ul>
-            </fieldset>
-            <fieldset>
-                <legend>Customize your profile</legend>
-                <ul>
-                    <li>
-                        <label for="profile-picture">Your Picture:</label>
-                        <input type="file" id="profile-picutre" name="userProfilePicture" accept='image/*' required>
-                    </li>
-                    <li>
-                        <label for="color">Make it colorful:</label>
-                        <input type="color" id="color" name="userColor" value='#000000'>
-                    </li>
-                    <li>
-                        <label for="description">Discribe yourself:</label>
-                        <textarea name="userProfileDescription" 
-                            id="description" 
-                            cols="30" 
-                            rows="10" 
-                            required placeholder="Hello World, im Example and im doing things." 
-                            maxlength="200"></textarea>
-                    </li>
-                </ul>
-            </fieldset>
-            <fieldset>
-                <legend>Tell me how much you liked it:</legend>
-                <ul>
-                    <li>
-                        <meter value="10"
-                            max='10'
-                            min='1'
-                            optimum='10'
-                            high='8'
-                            low='5'
-                            id='user-points-meter'
-                        ></meter>
-                    </li>
-                    <li>
-                        <input 
-                            type="range" 
-                            name='userPoints' 
-                            id="user-points" 
-                            min="1" max="10" value='10'>
-                    </li>
-                    <li>
-                        <output id='user-points-output' for="user-points">10</output>
-                    </li>
-                </ul>
-            </fieldset>
-        </form>
+        <header></header>
+        <main>
+            <form action="https://www.google.com/" method='post'>
+                <fieldset>
+                    <legend>Sign up now!</legend>
+                    <ul>
+                        <li>
+                            <label for="full-name">Full Name:</label>
+                            <input type="text" id="full-name" name="userFullName" placeholder='Your Full Name'>
+                        </li>
+                        <li>
+                            <label for="user-name">Username:</label>
+                            <input type="text" id="user-name" name="userName" placeholder='Your Username' required>
+                        </li>
+                        <li>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="userEmail" placeholder="example@yur.com" required>
+                        </li>
+                        <li>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="userPassword" placeholder='Password' required>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Customize your profile</legend>
+                    <ul>
+                        <li>
+                            <img id="picture-preview"
+                            width="200"
+                            height="200">
+                        </li>
+                        <li>
+                            <label for="profile-picture">Your Picture</label>
+                            <input type="file" id="profile-picture" name="userProfilePicture" accept='image/*' required>
+                        </li>
+                        <li>
+                            <label for="color">Make it colorful:</label>
+                            <div class="color-container">
+                                <input type="color" id="color" name="userColor" value='#ffffff'>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="description">Discribe yourself:</label>
+                            <textarea name="userProfileDescription" 
+                                id="description" 
+                                cols="30" 
+                                rows="3" 
+                                required placeholder="Hello World, im Example and im doing things. (Max 100 characters)" 
+                                maxlength="100"></textarea>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Tell me how much you liked it:</legend>
+                    <ul>
+                        <li>
+                            <meter value="10"
+                                max='10'
+                                min='1'
+                                optimum='10'
+                                high='8'
+                                low='5'
+                                id='user-points-meter'
+                            ></meter>
+                        </li>
+                        <li>
+                            <input 
+                                type="range" 
+                                name='userPoints' 
+                                id="user-points" 
+                                min="1" max="10" value='10'>
+                        </li>
+                        <li>
+                            <output id='user-points-output' for="user-points">10</output>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Ur done?</legend>
+                    <ul>
+                        <li>
+                            <button type="submit">Submit</button>
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+
+            <div class='nav-buttons'>
+                <button id='previous-button' disabled>&lt; Previous</button>
+                <button id='next-button'>Next &gt;</button>
+            </div>
+        </main>
+        <footer></footer>
     </body>
 </html>

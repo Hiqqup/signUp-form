@@ -1,0 +1,84 @@
+body{
+
+	width:97vw;
+	height:97vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+ul{
+	list-style-type: none;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+	height: 100%;
+}
+ul:has(meter), ul:has(img){
+	align-items: center;
+	gap: 5px;
+}
+
+ul:has(img) li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+}
+img{
+	border-radius: 100px;
+}
+
+.color-container{
+  position: relative;
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 75px;
+  padding: 0;
+  width: 75px;
+  overflow: hidden;
+}
+#color{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% + 8px);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+}
+
+textarea{
+	resize: none;
+}
+input[type="file"] {
+	display: none;
+}
+label[for='profile-picture']{
+	border: 1px solid black;
+	padding: 4px 8px
+}
+.nav-buttons{
+	display: flex;
+	justify-content: space-between;
+}
+fieldset{
+	align-items: center;
+	justify-content: center;
+	display: none;
+	width: 500px;
+	height: 500px;
+
+}
+li{
+	display: flex;
+	justify-content: space-between;
+	gap: 50px;
+
+}
+.enabled{
+	display: flex;
+}
