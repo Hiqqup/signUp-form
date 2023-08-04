@@ -1,6 +1,7 @@
 const fieldsets = document.querySelectorAll('fieldset');
 const nextButton = document.querySelector('#next-button');
 const previousButton = document.querySelector('#previous-button');
+const form = document.querySelector('form');
 let position = 0;
 fieldsets[position].classList.add('enabled')
 addToChildren(position+1,'right');
@@ -8,28 +9,34 @@ addToChildren(position+1,'right');
 nextButton.addEventListener("click",()=> crementPosition(1));
 previousButton.addEventListener("click",()=> crementPosition(-1));
 
+
 function crementPosition(num){
 
-	fieldsets[position].classList.remove('enabled');
-	if(num==1){
-		addToChildren(position, 'left');
-		removeFromChildren(position+num,'right');
-	}
-	if(num==-1){
-		addToChildren(position, 'right');
-		removeFromChildren(position+num,'left');
-	}
-	position+= num;
+	if (checkValidity(position) || num == -1){
+		fieldsets[position].classList.remove('enabled');
+		if(num==1){
+			addToChildren(position, 'left');
+			removeFromChildren(position+num,'right');
+		}
+		if(num==-1){
+			addToChildren(position, 'right');
+			removeFromChildren(position+num,'left');
+		}
+		position+= num;
 
-	fieldsets[position].classList.remove('invisible');
-	fieldsets[position].classList.add('enabled');
-	if(fieldsets[position+1]){
-		addToChildren(position+1, 'right');
+		fieldsets[position].classList.remove('invisible');
+		fieldsets[position].classList.add('enabled');
+		if(fieldsets[position+1]){
+			addToChildren(position+1, 'right');
+		}
+		if(fieldsets[position-1]){
+			addToChildren(position-1, 'left');
+		}
+		handleButtons(position);
 	}
-	if(fieldsets[position-1]){
-		addToChildren(position-1, 'left');
+	else{
+		form.reportValidity();
 	}
-	handleButtons(position);
 }
 function addToChildren(position, arg){
 	fieldsets[position].classList.add('invisible');
@@ -40,6 +47,16 @@ function pushNoInvis(position, arg){
 }
 function removeFromChildren(position, arg){
 	fieldsets[position].childNodes[fieldsets[position].childNodes.length -2].classList.remove(arg);
+}
+const inputs = document.querySelectorAll('input, textarea');
+function checkValidity(position){
+	let bool = true;
+	inputs.forEach((i)=>{
+		if (fieldsets[position].contains(i)){
+			if(!i.checkValidity())bool = false;
+		}
+	});
+	return bool;
 }
 
 function handleButtons(position){

@@ -13,7 +13,7 @@
         <main>
             <div class='gap'></div>
             <div>
-                <form action="https://www.google.com/" method='post'>
+                <form action="https://github.com/Hiqqup" method='post'>
                     <fieldset>
                         <legend>Sign up now!</legend>
                         <ul>
@@ -22,15 +22,15 @@
                                 <input type="text" id="full-name" name="userFullName" placeholder='Your Full Name'>
                             </li>
                             <li>
-                                <label for="user-name">Username:</label>
+                                <label for="user-name">Username*:</label>
                                 <input type="text" id="user-name" name="userName" placeholder='Your Username' required>
                             </li>
                             <li>
-                                <label for="email">Email:</label>
+                                <label for="email">Email*:</label>
                                 <input type="email" id="email" name="userEmail" placeholder="example@yur.com" required>
                             </li>
                             <li>
-                                <label for="password">Password:</label>
+                                <label for="password">Password*:</label>
                                 <input type="password" id="password" name="userPassword" placeholder='Password' required>
                         </ul>
                     </fieldset>
@@ -45,7 +45,7 @@
                             </li>
                             <li>
                                 <label for="profile-picture">Your Picture</label>
-                                <input type="file" id="profile-picture" name="userProfilePicture" accept='image/*' required>
+                                <input type="file" id="profile-picture" name="userProfilePicture" accept='image/*' >
                             </li>
                             <li>
                                 <label for="color">Make it colorful:</label>
@@ -54,13 +54,15 @@
                                 </div>
                             </li>
                             <li>
-                                <label for="description">Describe yourself:</label>
+                                <label for="description">Describe yourself*:</label>
                                 <textarea name="userProfileDescription" 
                                     id="description" 
                                     cols="32" 
                                     rows="3" 
                                     required placeholder="Hello World, im Example and im doing things.(Max 100 chars)." 
-                                    maxlength="100"></textarea>
+                                    maxlength="100"
+                                    minlength='5'
+                                requried></textarea>
                             </li>
                         </ul>
                     </fieldset>
@@ -97,7 +99,7 @@
                                 <button type="submit">Submit</button>
                             </li>
                             <li>
-                                <p>Unfortunately this doesnt work, because i dont have a backend server :(</p>
+                                <p id='disclaimer'>Unfortunately this doesnt work, because i dont have a backend server :(</p>
                             </li>
                         </ul>
                     </fieldset>

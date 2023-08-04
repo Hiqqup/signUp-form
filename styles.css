@@ -22,7 +22,7 @@ main{
 }
 
 :root{
-	--width: min(500px, 100vw);
+	--width: min(500px, 100vh);
 	--height: min(550px, 100vh);
 	--user-color: var(--bg-color);
 }
@@ -56,7 +56,7 @@ ul{
 	gap: 20px;
 	height: 100%;
 }
-p{
+#disclaimer{
 	margin: 60px;
 	background-color:rgba(0,0,0,0);
 	padding: 0;
@@ -137,7 +137,7 @@ fieldset{
 	justify-content: center;
 	display: none;
 	width: var(--width);
-	height: var(--height);
+	height: 550px;
 	overflow: hidden; 
 }
 fieldset *{
@@ -194,4 +194,5 @@ label[for=profile-picture]:hover{
 input:focus::placeholder, textarea:focus::placeholder{
 	color: var(--color);
 }
+
 
